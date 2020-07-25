@@ -17,7 +17,7 @@ namespace UltimateDotNetTools.TestConsole.Tests
             }
         }
 
-        public static void PrintMainMenu()
+        private static void PrintMainMenu()
         {
             Console.WriteLine("----------------------------------");
             Console.WriteLine("STRING TESTS");
@@ -27,7 +27,7 @@ namespace UltimateDotNetTools.TestConsole.Tests
             Console.WriteLine("----------------------------------");
         }
 
-        public static void ChooseTest()
+        private static void ChooseTest()
         {
             while (true)
             {
@@ -52,7 +52,7 @@ namespace UltimateDotNetTools.TestConsole.Tests
             }
         }
 
-        public static void TestSafeTrim()
+        private static void TestSafeTrim()
         {
             Console.Clear();
 
