@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltimateDotNetTools", "UltimateDotNetTools\UltimateDotNetTools.csproj", "{F3B47EF1-173B-4CE9-B9F8-98E2A379750E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltimateDotNetTools.TestConsole", "UltimateDotNetTools.TestConsole\UltimateDotNetTools.TestConsole.csproj", "{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{F3B47EF1-173B-4CE9-B9F8-98E2A379750E}.Release|x64.Build.0 = Release|Any CPU
 		{F3B47EF1-173B-4CE9-B9F8-98E2A379750E}.Release|x86.ActiveCfg = Release|Any CPU
 		{F3B47EF1-173B-4CE9-B9F8-98E2A379750E}.Release|x86.Build.0 = Release|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Debug|x64.Build.0 = Debug|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Debug|x86.Build.0 = Debug|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Release|x64.ActiveCfg = Release|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Release|x64.Build.0 = Release|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Release|x86.ActiveCfg = Release|Any CPU
+		{8BDEC4A2-94B7-4C46-B6D1-0A1D0EA1D7CD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
