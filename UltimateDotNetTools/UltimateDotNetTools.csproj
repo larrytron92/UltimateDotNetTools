@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>UltimateDotNetTools</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Laurence Lam</Authors>
+    <Company>Lam Software LTD</Company>
+    <PackageDescription>Convenient extension methods for .NET Developers</PackageDescription>
+    <RepositoryUrl>https://github.com/larrytron92/UltimateDotNetTools</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
