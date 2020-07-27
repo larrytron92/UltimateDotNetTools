@@ -6,6 +6,13 @@ Please visit <https://dotnet.microsoft.com/platform/dotnet-standard> to see whic
 
 Orginally I planned to build this project in .NET Standard 2.1 to really get the best performance out of the newest version of C#, but it would limited the amount of compatible technologies because in my experience as a software developer working for various companies, a lot of them are stuck on outdated technologies and cannot afford to spend time rebuilding everything from the ground up.
 
+# Technologies & Dependencies
+
+.NET Standard 2.0
+C# 8.0
+.NET Core 3.1 Console Application
+System.Text.Json
+
 # The purpose of this project
 
 The purpose of this project is to provide a set of simple extension methods for .NET developers. The library offers convenience for small little coding nuisances whilst preventing some very common null errors that developers forget to implement because Microsoft has yet to add these null checks into each of the 3 supported languages themselves.
