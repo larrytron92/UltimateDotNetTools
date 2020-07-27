@@ -9,8 +9,11 @@ Orginally I planned to build this project in .NET Standard 2.1 to really get the
 # Technologies & Dependencies
 
 .NET Standard 2.0
+
 C# 8.0
+
 .NET Core 3.1 Console Application
+
 System.Text.Json
 
 # The purpose of this project
