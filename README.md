@@ -58,7 +58,7 @@ So what exactly can be done about this? You can do it this way...
 ```
 List<string> test = null;
 
-if (test != && test.Any())
+if (test != null && test.Any())
 {
   
 }
