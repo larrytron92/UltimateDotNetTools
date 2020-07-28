@@ -22,7 +22,9 @@ The purpose of this project is to provide a set of simple extension methods for 
 
 Ideally, if you have to write a piece of logic more than once, it's best to create a small method that does the same thing and make it accessible anywhere in the app for future use.
 
-.NET Framework, Core and Xamarin are the most popular technologies used for developing websites and apps. All three major technologies can be programmed in C#, F# and Visual Basic. .NET Standard is a class library to share common logic among each of the three aforementioned technologies without needed to write the code again. Just create the library, stick the code in, publish it to NuGet and then download it into your app and...voilà!
+.NET Framework, Core and Xamarin are the most popular technologies used for developing websites and apps. All three major technologies can be programmed in C#, F# and Visual Basic.
+
+.NET Standard is a class library to share common logic among each of the three aforementioned technologies without needed to write the code again. Just create the library, stick the code in, build it as a package, publish the package and then download it into your app and...voilà!
 
 # The main philosophy of this project
 
