@@ -13,7 +13,7 @@ namespace UltimateDotNetTools
 
         public static int GetHighestNumber<Enum>() => GetListOfEnumValues<Enum>().Max();
 
-        public static int GetLowestNumber<Enum>(bool excludeZero)
+        public static int GetLowestNumber<Enum>(bool excludeZero = false)
         {
             var enumNumbers = GetListOfEnumValues<Enum>();
 
@@ -34,7 +34,7 @@ namespace UltimateDotNetTools
             return attributes.IsNotNullOrEmpty() ? attributes.First().Description : value.ToString().SeperateCapitalLetters();
         }
 
-        public static IDictionary<int, string> GetDictionaryOfEnum(Type enumType, bool excludeZero = false)
+        public static IDictionary<int, string> GetDictionaryOfEnumAndDescription(Type enumType, bool excludeZero = false)
         {
             var retVal = new Dictionary<int, string>();
 
@@ -55,7 +55,7 @@ namespace UltimateDotNetTools
             return retVal;
         }
 
-        public static IDictionary<int, string> GetDictionaryOfEnum<Enum>(bool excludeZero = false) => GetDictionaryOfEnum(typeof(Enum), excludeZero);
+        public static IDictionary<int, string> GetDictionaryOfEnumAndDescription<Enum>(bool excludeZero = false) => GetDictionaryOfEnumAndDescription(typeof(Enum), excludeZero);
 
         public static bool IsNotInRangeOfEnum<Enum>(this int value, bool excludeZero = false)
         {
