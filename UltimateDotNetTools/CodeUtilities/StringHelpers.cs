@@ -145,6 +145,8 @@ namespace UltimateDotNetTools
                    throw new ArgumentNullException("The string should not be null or full of white spaces!");
                 }
 
+                json = json.Trim();
+
                 var genericType = typeof(T);
 
                 if (genericType == typeof(string))
@@ -212,27 +214,27 @@ namespace UltimateDotNetTools
             return default(T);
         }
 
-        public static int ToInt(this string value, bool throwOnError = false) => MapJsonString<int>(value.Trim(), throwOnError);
+        public static int ToInt(this string value, bool throwOnError = false) => MapJsonString<int>(value, throwOnError);
 
-        public static int? ToNullableInt(this string value, bool throwOnError = false) => MapJsonString<int>(value.Trim(), throwOnError);
+        public static int? ToNullableInt(this string value, bool throwOnError = false) => MapJsonString<int>(value, throwOnError);
 
-        public static double ToDouble(this string value, bool throwOnError = false) => MapJsonString<double>(value.Trim(), throwOnError);
+        public static double ToDouble(this string value, bool throwOnError = false) => MapJsonString<double>(value, throwOnError);
 
-        public static double? ToNullableDouble(this string value, bool throwOnError = false) => MapJsonString<double>(value.Trim(), throwOnError);
+        public static double? ToNullableDouble(this string value, bool throwOnError = false) => MapJsonString<double>(value, throwOnError);
 
-        public static float ToFloat(this string value, bool throwOnError = false) => MapJsonString<float>(value.Trim(), throwOnError);
+        public static float ToFloat(this string value, bool throwOnError = false) => MapJsonString<float>(value, throwOnError);
 
-        public static float? ToNullableFloat(this string value, bool throwOnError = false) => MapJsonString<float?>(value.Trim(), throwOnError);
+        public static float? ToNullableFloat(this string value, bool throwOnError = false) => MapJsonString<float?>(value, throwOnError);
 
-        public static bool IsTrue(this string value, bool throwOnError = false) => MapJsonString<bool>(value.Trim(), throwOnError);
+        public static bool IsTrue(this string value, bool throwOnError = false) => MapJsonString<bool>(value, throwOnError);
 
-        public static decimal ToDecimal(this string value, bool throwOnError = false) => MapJsonString<decimal>(value.Trim(), throwOnError);
+        public static decimal ToDecimal(this string value, bool throwOnError = false) => MapJsonString<decimal>(value, throwOnError);
 
-        public static decimal? ToNullableDecimal(this string value, bool throwOnError = false) => MapJsonString<decimal?>(value.Trim(), throwOnError);
+        public static decimal? ToNullableDecimal(this string value, bool throwOnError = false) => MapJsonString<decimal?>(value, throwOnError);
 
-        public static DateTime ToDateTime(this string value, bool throwOnError = false) => MapJsonString<DateTime>(value.Trim(), throwOnError);
+        public static DateTime ToDateTime(this string value, bool throwOnError = false) => MapJsonString<DateTime>(value, throwOnError);
 
-        public static DateTime? ToNullableDateTime(this string value, bool throwOnError = false) => MapJsonString<DateTime?>(value.Trim(), throwOnError);
+        public static DateTime? ToNullableDateTime(this string value, bool throwOnError = false) => MapJsonString<DateTime?>(value, throwOnError);
 
         public static string ToCamelCase(this string value, bool allowTrim = false)
         {
