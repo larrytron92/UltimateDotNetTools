@@ -40,16 +40,16 @@ namespace UltimateDotNetTools
 
         public static bool IsValidValue(this DateTime? value) => value.HasValue && value.Value != default(DateTime);
 
-        public static bool IsValidBeforeToday(this DateTime? value, bool dateOnly = false) => value.HasValue ? value.Value.IsValidBeforeToday() : false;
+        public static bool HasNotExpired(this DateTime? value, bool dateOnly = false) => value.HasValue ? value.Value.HasNotExpired(dateOnly) : false;
 
-        public static bool IsValidAfterToday(this DateTime? value, bool dateOnly = false) => value.HasValue ? value.Value.IsValidAfterToday(dateOnly) : false;
+        public static bool HasExpired(this DateTime? value, bool dateOnly = false) => value.HasValue ? value.Value.HasExpired(dateOnly) : false;
 
-        public static bool IsValidToday(this DateTime? value) => value.HasValue && value.Value.IsValidToday();
+        public static bool IsToday(this DateTime? value) => value.HasValue && value.Value.IsToday();
 
-        public static bool IsValidBeforeToday(this DateTime value, bool dateOnly = false) => dateOnly ? value.Date > DateTime.Now.Date : value > DateTime.Now;
+        public static bool HasNotExpired(this DateTime value, bool dateOnly = false) => dateOnly ? value.Date >= DateTime.Now.Date : value >= DateTime.Now;
 
-        public static bool IsValidAfterToday(this DateTime value, bool dateOnly = false) => dateOnly ? value.Date < DateTime.Now.Date : value < DateTime.Now;
+        public static bool HasExpired(this DateTime value, bool dateOnly = false) => dateOnly ? value.Date < DateTime.Now.Date : value < DateTime.Now;
 
-        public static bool IsValidToday(this DateTime value) => value.Date == DateTime.Now.Date;
+        public static bool IsToday(this DateTime value) => value.Date == DateTime.Now.Date;
     }
 }

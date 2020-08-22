@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>UltimateDotNetTools</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Laurence Lam</Authors>
     <Company>Lam Software LTD</Company>
     <PackageDescription>Convenient extension methods for .NET Developers</PackageDescription>
