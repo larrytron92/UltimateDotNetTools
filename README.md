@@ -137,6 +137,6 @@ So far I've added helpers for the most frequently used data types from the vario
 
 # Community Guidlines
 
-This project is free for anyone to download of modify to their heart's content. As a community we should be sharing bits of code used to solve common problems, so others can learn from your experience.
+This project is free for anyone to download and modify to their heart's content. As a community we should be sharing bits of code used to solve common problems, so others can learn from your experience.
 
 If you would like to add some extension methods then please feel free to do a pull request.
