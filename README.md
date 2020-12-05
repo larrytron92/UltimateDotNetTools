@@ -6,6 +6,12 @@ Please visit <https://dotnet.microsoft.com/platform/dotnet-standard> to see whic
 
 Orginally, I planned to build this project in .NET Standard 2.1 to really get the best performance out of the newest version of C#, but it would have restricted the amount of compatible .NET technologies because in my experience as a software developer working for various companies, a lot of them are stuck on outdated technologies and cannot afford to spend time rebuilding everything from the ground up.
 
+The package will also work on .NET 5 \o/
+
+I found out, much to my chagrin, that .NET 5 supports Standard 2.0 but not Standard 2.1 for some reason. I've decided to keep this repo going because it'll be the only version of this toolset that's both backwards compatible with the majority of the old pre-.NET 5 frameworks as well as .NET 5 itself.
+
+Anything apps that's targeting .NET 5 and beyond should use the newer version of this toolset, I'll post the link when it's finished.
+
 # Technologies & Dependencies
 
 .NET Standard 2.0
