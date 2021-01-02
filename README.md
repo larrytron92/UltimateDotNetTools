@@ -6,11 +6,11 @@ Please visit <https://dotnet.microsoft.com/platform/dotnet-standard> to see whic
 
 Originally, I planned to build this project in .NET Standard 2.1 to really get the best performance out of the newest version of C#, but it would have restricted the amount of compatible .NET technologies because in my experience as a software developer working for various companies, a lot of them are stuck on outdated technologies and cannot afford to spend time rebuilding everything from the ground up.
 
-The package will also work on .NET 5 \o/
+The package will also work on .NET 5! \o/
 
 I found out, much to my chagrin, that .NET 5 supports Standard 2.0 but not Standard 2.1 for some reason. I've decided to keep this repo going because it'll be the only version of this toolset that's both backwards compatible with the majority of the old pre-.NET 5 frameworks as well as .NET 5 itself.
 
-Anything apps that's targeting .NET 5 and beyond should use the newer version of this toolset, I'll post the link when it's finished.
+Any apps that's targeting .NET 5 and beyond should use the newer version of this toolset. <https://www.nuget.org/packages/DotNetBestFriend/>
 
 # Technologies & Dependencies
 
@@ -40,11 +40,11 @@ The most important lesson I've learnt as a programmer is to: Build your tools be
 
 The standards needs to cover error checking, exception handling, data converting, common entities and business logic.
 
-I've modeled the philosophy from experiences at my current job and previous job, where more senior devs would program the libraries for everyone to use. At my current job, I've managed to program three generations of a .NET Standard API for my colleagues to quickly connect their .NET Core apps to our REST services. Each generation became more efficient as I honed my software development abilities and expanded the toolset to include the same extension methods found in this project.
+I've modelled the philosophy from experiences at my current job and previous job, where more senior devs would program the libraries for everyone to use. At my current job, I've managed to program four generations of a .NET Standard API for my colleagues to quickly connect their .NET Core apps to our REST services. Each generation became more efficient as I honed my software development abilities and expanded the toolset to include the same extension methods found in this project.
 
 # An example of how useful this toolset can be
 
-A common root cause of programs crashing is because it's trying to read or manupulate null data. Developers can overlook the possibility that a null object or value has been returned because something has gone wrong in the logic and it leads to the program not functioning properly. 
+A common root cause of programs crashing is because it's trying to read or manipulate null data. Developers can overlook the possibility that a null object or value has been returned because something has gone wrong in the logic and it leads to the program not functioning properly. 
 
 Most users are NOT computer programmers, so they are unlikely to understand why the program has froze or an error page is shown.
 
@@ -135,7 +135,7 @@ So far I've added helpers for the most frequently used data types from the vario
 * Enum
 * List
 
-# Community Guidlines
+# Community Guidelines
 
 This project is free for anyone to download and modify to their heart's content. As a community we should be sharing bits of code used to solve common problems, so others can learn from your experience.
 
