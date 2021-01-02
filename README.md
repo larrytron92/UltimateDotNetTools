@@ -4,7 +4,7 @@ This is a .NET Standard 2.0 project with an additional .NET Core 3.1 Console App
 
 Please visit <https://dotnet.microsoft.com/platform/dotnet-standard> to see which .NET technologies .NET Standard 2.0 supports. 
 
-Orginally, I planned to build this project in .NET Standard 2.1 to really get the best performance out of the newest version of C#, but it would have restricted the amount of compatible .NET technologies because in my experience as a software developer working for various companies, a lot of them are stuck on outdated technologies and cannot afford to spend time rebuilding everything from the ground up.
+Originally, I planned to build this project in .NET Standard 2.1 to really get the best performance out of the newest version of C#, but it would have restricted the amount of compatible .NET technologies because in my experience as a software developer working for various companies, a lot of them are stuck on outdated technologies and cannot afford to spend time rebuilding everything from the ground up.
 
 The package will also work on .NET 5 \o/
 
