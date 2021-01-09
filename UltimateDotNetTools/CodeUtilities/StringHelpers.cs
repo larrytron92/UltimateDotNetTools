@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Text;
 using System.Text.RegularExpressions;
 using System;
@@ -136,7 +137,7 @@ namespace UltimateDotNetTools
             }
         }
 
-        public static T MapJsonString<T>(this string json, bool throwOnError = false)
+        public static T MapJsonString<T>(this string json, bool throwOnError = false, JsonSerializerOptions options = null)
         {
             try
             {
@@ -194,7 +195,15 @@ namespace UltimateDotNetTools
                     return (T)Convert.ChangeType(retVal, genericType);
                 }
 
-                return JsonSerializer.Deserialize<T>(json);
+                if (options is null)
+                {
+                    options = new JsonSerializerOptions 
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
+                }
+
+                return JsonSerializer.Deserialize<T>(json, options);
             }
             catch (ArgumentNullException argEx)
             {
