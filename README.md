@@ -1,6 +1,6 @@
 # The Ultimate .NET Tools
 
-This is a .NET Standard 2.0 project with an additional .NET Core 3.1 Console Application to test code. The .NET Standard project will be deployed as a NuGet Package for use across the Microsoft .NET technologies in C#, Visual Basic and F#.
+This is a .NET Standard 2.0 project with an additional .NET 5 Console Application to test code. The .NET Standard project will be deployed as a NuGet Package for use across the Microsoft .NET technologies in C#, Visual Basic and F#.
 
 Please visit <https://dotnet.microsoft.com/platform/dotnet-standard> to see which .NET technologies .NET Standard 2.0 supports. 
 
@@ -18,7 +18,7 @@ Any apps that's targeting .NET 5 and beyond should use the newer version of this
 
 C# 8.0
 
-.NET Core 3.1 Console Application
+.NET Core 5 Console Application
 
 System.Text.Json
 
