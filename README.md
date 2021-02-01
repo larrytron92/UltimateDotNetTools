@@ -26,7 +26,7 @@ System.Text.Json
 
 .NET Framework, Core and Xamarin are the most popular technologies used for developing websites and apps. All three major technologies can be programmed in C#, F# and Visual Basic.
 
-.NET Standard is a class library to share common logic among each of the three aforementioned technologies without needed to write the code again. Just create the library, stick the code in, build it as a package, publish the package and then download it into your app and...voilà!
+.NET Standard is a class library to share common logic among each of the three aforementioned technologies without needing to write the code again. Just create the library, stick the code in, build it as a package, publish the package and then download it into your app and...voilà!
 
 # The purpose of this project
 
@@ -40,7 +40,7 @@ The most important lesson I've learnt as a programmer is to: Build your tools be
 
 The standards needs to cover error checking, exception handling, data converting, common entities and business logic.
 
-I've modelled the philosophy from experiences at my current job and previous job, where more senior devs would program the libraries for everyone to use. At my current job, I've managed to program four generations of a .NET Standard API for my colleagues to quickly connect their .NET Core apps to our REST services. Each generation became more efficient as I honed my software development abilities and expanded the toolset to include the same extension methods found in this project.
+I've modelled the philosophy from experiences at my previous jobs, where more senior devs would program the libraries for everyone to use. At one company I worked for, I've managed to program four generations of a .NET Standard API for my colleagues to quickly connect their .NET Core apps to our REST services. Each generation became more efficient as I honed my software development abilities and expanded the toolset to include the same extension methods found in this project.
 
 # An example of how useful this toolset can be
 

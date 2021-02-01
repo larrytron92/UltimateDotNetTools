@@ -16,16 +16,33 @@ namespace UltimateDotNetTools
 
         public static bool IsNotNullAndContains<T>(this IEnumerable<T> collection, T item) => collection != null && collection.Contains(item);
 
+        public static bool IsNotNullAndAll<T>(this IEnumerable<T> collection, Func<T, bool> predicate) => collection != null && collection.All(predicate);
+
+        public static IEnumerable<T> IsNotNullAndExcept<T>(this IEnumerable<T> collection, IEnumerable<T> second)
+        {
+            if (collection is null)
+            {
+                collection = new List<T>();
+            }
+
+            if (second is null)
+            {
+                second = new List<T>();
+            }
+
+            return collection.Except(second);
+        }
+        
         public static IEnumerable<IEnumerable<T>> ConvertListToPage<T>(this IEnumerable<T> source, int pageSize)
         {
             if (source.IsNullOrEmpty())
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("List cannot be empty!");
             }
 
-            if (pageSize == 0)
+            if (pageSize < 1)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("Page size cannot be lower that 1!");
             }
 
             using (var enumerator = source.GetEnumerator())
@@ -53,6 +70,8 @@ namespace UltimateDotNetTools
         public static bool IsNotNullAndAny<T>(this ICollection<T> collection, Func<T, bool> predicate) => collection != null && collection.Any(predicate);
 
         public static bool IsNotNullAndContains<T>(this ICollection<T> collection, T item) => collection != null && collection.Contains(item);
+
+        public static bool IsNotNullAndAll<T>(this ICollection<T> collection, Func<T, bool> predicate) => collection != null && collection.All(predicate);
         #endregion
     }
 }

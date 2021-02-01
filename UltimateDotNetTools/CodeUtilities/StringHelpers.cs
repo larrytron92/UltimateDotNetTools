@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Text;
-using System.Text.RegularExpressions;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace UltimateDotNetTools
 {
@@ -26,11 +25,11 @@ namespace UltimateDotNetTools
 
         public static string ToCommaSeperatedString(this ICollection<string> collection, bool throwOnError = false) => collection.ToSeperatedString(",", throwOnError);
 
-        public static string SafeTrim(this string value) => !string.IsNullOrWhiteSpace(value) ? value.Trim() : string.Empty;
+        public static string SafeTrim(this string value) => value != null ? value.Trim() : string.Empty;
 
-        public static string SeperateCapitalLetters(this string value, bool allowTrim = false, bool throwOnError = false)
+        public static string SeperateCapitalLetters(this string value, bool removeWhitespaces = false, bool throwOnError = false)
         {
-            if (string.IsNullOrWhiteSpace(value))
+            if (value.IsNullOrWhiteSpace())
             {
                 if (throwOnError)
                 {
@@ -40,7 +39,7 @@ namespace UltimateDotNetTools
                 return value;
             }
 
-            if (allowTrim)
+            if (removeWhitespaces)
             {
                 value = value.Trim();
             }
@@ -69,11 +68,11 @@ namespace UltimateDotNetTools
             return value;
         }
 
-        public static string SetFirstLetterToUpperCase(this string value, bool allowTrim = false)
+        public static string SetFirstLetterToUpperCase(this string value, bool removeWhitespaces = false)
         {
-            if (!string.IsNullOrWhiteSpace(value))
+            if (value.IsNotNullOrWhiteSpace())
             {
-                if (allowTrim)
+                if (removeWhitespaces)
                 {
                     value = value.Trim();
                 }
@@ -90,9 +89,9 @@ namespace UltimateDotNetTools
             return value;
         }
 
-        public static string LimitString(this string value, int maxLength, bool allowTrim = false, bool throwOnError = false)
+        public static string LimitString(this string value, int maxLength, bool removeWhitespaces = false, bool throwOnError = false)
         {
-            if (string.IsNullOrWhiteSpace(value))
+            if (value.IsNullOrWhiteSpace())
             {
                 if (throwOnError)
                 {
@@ -112,7 +111,7 @@ namespace UltimateDotNetTools
                 return value;
             }
 
-            if (allowTrim)
+            if (removeWhitespaces)
             {
                 value = value.Trim();
             }
@@ -124,7 +123,7 @@ namespace UltimateDotNetTools
         {
             try
             {
-                if (!string.IsNullOrWhiteSpace(url))
+                if (url.IsNotNullOrWhiteSpace())
                 {
                     return Uri.TryCreate(url.Trim(), UriKind.Absolute, out var uriResult) && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
                 }
@@ -137,11 +136,11 @@ namespace UltimateDotNetTools
             }
         }
 
-        public static T MapJsonString<T>(this string json, bool throwOnError = false, JsonSerializerOptions options = null)
+        public static T MapJsonString<T>(this string json, bool throwOnError = false, JsonSerializerOptions options = null) 
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(json))
+                if (json.IsNullOrWhiteSpace())
                 {
                    throw new ArgumentNullException("The string should not be null or full of white spaces!");
                 }
@@ -197,7 +196,7 @@ namespace UltimateDotNetTools
 
                 if (options is null)
                 {
-                    options = new JsonSerializerOptions 
+                    options = new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     };
@@ -223,33 +222,37 @@ namespace UltimateDotNetTools
             return default(T);
         }
 
-        public static int ToInt(this string value, bool throwOnError = false) => MapJsonString<int>(value, throwOnError);
+        public static int ToInt(this string value, bool throwOnError = false) => value.MapJsonString<int>(throwOnError);
 
-        public static int? ToNullableInt(this string value, bool throwOnError = false) => MapJsonString<int>(value, throwOnError);
+        public static int? ToNullableInt(this string value, bool throwOnError = false) => value.MapJsonString<int>(throwOnError);
 
-        public static double ToDouble(this string value, bool throwOnError = false) => MapJsonString<double>(value, throwOnError);
+        public static double ToDouble(this string value, bool throwOnError = false) => value.MapJsonString<double>(throwOnError);
 
-        public static double? ToNullableDouble(this string value, bool throwOnError = false) => MapJsonString<double>(value, throwOnError);
+        public static double? ToNullableDouble(this string value, bool throwOnError = false) => value.MapJsonString<double>(throwOnError);
 
-        public static float ToFloat(this string value, bool throwOnError = false) => MapJsonString<float>(value, throwOnError);
+        public static float ToFloat(this string value, bool throwOnError = false) => value.MapJsonString<float>(throwOnError);
 
-        public static float? ToNullableFloat(this string value, bool throwOnError = false) => MapJsonString<float?>(value, throwOnError);
+        public static float? ToNullableFloat(this string value, bool throwOnError = false) => value.MapJsonString<float?>(throwOnError);
 
-        public static bool IsTrue(this string value, bool throwOnError = false) => MapJsonString<bool>(value, throwOnError);
+        public static bool IsTrue(this string value, bool throwOnError = false) => value.MapJsonString<bool>(throwOnError);
 
-        public static decimal ToDecimal(this string value, bool throwOnError = false) => MapJsonString<decimal>(value, throwOnError);
+        public static decimal ToDecimal(this string value, bool throwOnError = false) => value.MapJsonString<decimal>(throwOnError);
 
-        public static decimal? ToNullableDecimal(this string value, bool throwOnError = false) => MapJsonString<decimal?>(value, throwOnError);
+        public static decimal? ToNullableDecimal(this string value, bool throwOnError = false) => value.MapJsonString<decimal?>(throwOnError);
 
-        public static DateTime ToDateTime(this string value, bool throwOnError = false) => MapJsonString<DateTime>(value, throwOnError);
+        public static DateTime ToDateTime(this string value, bool throwOnError = false) => value.MapJsonString<DateTime>(throwOnError);
 
-        public static DateTime? ToNullableDateTime(this string value, bool throwOnError = false) => MapJsonString<DateTime?>(value, throwOnError);
+        public static DateTime? ToNullableDateTime(this string value, bool throwOnError = false) => value.MapJsonString<DateTime?>(throwOnError);
 
-        public static string ToCamelCase(this string value, bool allowTrim = false)
+        public static Guid ToGuid(this string value, bool throwOnError = false) => value.MapJsonString<Guid>(throwOnError);
+
+        public static Guid? ToNullableGuid(this string value, bool throwOnError = false) => value.MapJsonString<Guid?>(throwOnError);
+
+        public static string ToCamelCase(this string value, bool removeWhitespaces = false)
         {
-            if (!string.IsNullOrWhiteSpace(value))
+            if (value.IsNotNullOrWhiteSpace())
             {
-                if (allowTrim)
+                if (removeWhitespaces)
                 {
                     value = value.Trim();
                 }
@@ -264,6 +267,106 @@ namespace UltimateDotNetTools
             }
 
             return value;
+        }
+
+        public static bool IsNullOrWhiteSpace(this string value) => string.IsNullOrWhiteSpace(value.SafeTrim());
+
+        public static bool IsNotNullOrWhiteSpace(this string value) => !string.IsNullOrWhiteSpace(value.SafeTrim());
+
+        public static string ToWebApiFromUrlArgument<T>(this IList<T> args, string argumentName, bool throwOnError = false)
+        {
+            try
+            {
+                if (args.IsNullOrEmpty())
+                {
+                    throw new ArgumentNullException("The lists of guids are empty!");
+                }
+
+                if (argumentName.IsNullOrWhiteSpace())
+                {
+                    throw new ArgumentNullException("The argument name cannot be null!");
+                }
+
+                var retVal = new StringBuilder("?");
+                
+                var genericType = typeof(T);
+
+                if (genericType == typeof(string))
+                {
+                    for (var i = 0; i < args.Count; i++)
+                    {
+                        var valueAsString = ((string)Convert.ChangeType(args[i], genericType)).SafeTrim();
+                        retVal.Append($"{argumentName}={valueAsString}&");
+                    }
+                }
+                else if (genericType.IsValueType)
+                {
+                    for (var i = 0; i < args.Count; i++)
+                    {
+                        var valueAsString = ((string)Convert.ChangeType(args[i], genericType)).SafeTrim();
+                        retVal.Append($"{argumentName}={valueAsString.MapJsonString<T>(throwOnError)}&");
+                    }
+                }
+                else   
+                {
+                    for (var i = 0; i < args.Count; i++)
+                    {
+                        retVal.Append($"{argumentName}={JsonSerializer.Serialize<T>(args[i])}&");
+                    }
+                }
+
+                return retVal.ToSafeString().RemoveLastCharacter();
+            }
+            catch (ArgumentNullException anex)
+            {
+                if (throwOnError)
+                {
+                    throw anex;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (throwOnError)
+                {
+                    throw ex;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        public static string ToSafeString(this StringBuilder sb) => sb is null ? string.Empty : sb.ToString().SafeTrim();
+
+        public static string RemoveLastCharacter(this string value, bool removeWhitespaces = false, bool throwOnError = false) => value.RemoveEndCharacters(1, removeWhitespaces, throwOnError);
+
+        public static string RemoveEndCharacters(this string value, int endCharactersToRemove, bool removeWhitespaces = false, bool throwOnError = false)
+        {
+            if (value.IsNullOrWhiteSpace())
+            {
+                if (throwOnError)
+                {
+                    throw new ArgumentNullException("String cannot be null or empty");
+                }
+
+                return string.Empty;
+            }
+
+            if (endCharactersToRemove < 1)
+            {
+                if (throwOnError)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+
+                return string.Empty;
+            }
+
+            if (removeWhitespaces)
+            {
+                value = value.Trim();
+            }
+            
+            return value.Remove(value.Length - endCharactersToRemove);
         }
     }
 }
