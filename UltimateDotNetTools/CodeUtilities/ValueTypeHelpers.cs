@@ -83,5 +83,101 @@ namespace UltimateDotNetTools
 
         public static bool IsValidAndMatches(this decimal? value, string number) => value.GetValueOrDefault() == number.MapJsonString<decimal>();
         #endregion
+
+        #region Long
+        public static bool IsValidValue(this long? value) => value.GetValueOrDefault() != default(long);
+
+        public static bool IsValidAndAboveZero(this long? value) => value.IsValidAndAbove(default(long));
+
+        public static bool IsValidAndBelowZero(this long? value) => value.IsValidAndBelow(default(long));
+
+        public static bool IsValidAndAbove(this long? value, long min) => value.GetValueOrDefault() > min;
+
+        public static bool IsValidAndBelow(this long? value, long max) => value.GetValueOrDefault() < max;
+
+        public static bool IsValidAndMatches(this long? value, long number) => value.GetValueOrDefault() == number;
+
+        public static bool IsValidAndMatches(this long? value, string number) => value.GetValueOrDefault() == number.MapJsonString<long>();
+        #endregion
+
+        #region Byte
+        public static bool IsValidValue(this byte? value) => value.GetValueOrDefault() != default(byte);
+
+        public static bool IsValidAndAboveZero(this byte? value) => value.IsValidAndAbove(default(byte));
+
+        public static bool IsValidAndBelowZero(this byte? value) => value.IsValidAndBelow(default(byte));
+
+        public static bool IsValidAndAbove(this byte? value, byte min) => value.GetValueOrDefault() > min;
+
+        public static bool IsValidAndBelow(this byte? value, byte max) => value.GetValueOrDefault() < max;
+
+        public static bool IsValidAndMatches(this byte? value, byte number) => value.GetValueOrDefault() == number;
+
+        public static bool IsValidAndMatches(this byte? value, string number) => value.GetValueOrDefault() == number.MapJsonString<byte>();
+        #endregion
+
+        #region SByte
+        public static bool IsValidValue(this sbyte? value) => value.GetValueOrDefault() != default(sbyte);
+
+        public static bool IsValidAndAboveZero(this sbyte? value) => value.IsValidAndAbove(default(sbyte));
+
+        public static bool IsValidAndBelowZero(this sbyte? value) => value.IsValidAndBelow(default(sbyte));
+
+        public static bool IsValidAndAbove(this sbyte? value, sbyte min) => value.GetValueOrDefault() > min;
+
+        public static bool IsValidAndBelow(this sbyte? value, sbyte max) => value.GetValueOrDefault() < max;
+
+        public static bool IsValidAndMatches(this sbyte? value, sbyte number) => value.GetValueOrDefault() == number;
+
+        public static bool IsValidAndMatches(this sbyte? value, string number) => value.GetValueOrDefault() == number.MapJsonString<sbyte>();
+        #endregion
+
+        #region Ushort
+        public static bool IsValidValue(this ushort? value) => value.GetValueOrDefault() != default(ushort);
+
+        public static bool IsValidAndAboveZero(this ushort? value) => value.IsValidAndAbove(default(ushort));
+
+        public static bool IsValidAndBelowZero(this ushort? value) => value.IsValidAndBelow(default(ushort));
+
+        public static bool IsValidAndAbove(this ushort? value, ushort min) => value.GetValueOrDefault() > min;
+
+        public static bool IsValidAndBelow(this ushort? value, ushort max) => value.GetValueOrDefault() < max;
+
+        public static bool IsValidAndMatches(this ushort? value, ushort number) => value.GetValueOrDefault() == number;
+
+        public static bool IsValidAndMatches(this ushort? value, string number) => value.GetValueOrDefault() == number.MapJsonString<ushort>();
+        #endregion
+
+        #region Uint
+        public static bool IsValidValue(this uint? value) => value.GetValueOrDefault() != default(uint);
+
+        public static bool IsValidAndAboveZero(this uint? value) => value.IsValidAndAbove(default(uint));
+
+        public static bool IsValidAndBelowZero(this uint? value) => value.IsValidAndBelow(default(uint));
+
+        public static bool IsValidAndAbove(this uint? value, uint min) => value.GetValueOrDefault() > min;
+
+        public static bool IsValidAndBelow(this uint? value, uint max) => value.GetValueOrDefault() < max;
+
+        public static bool IsValidAndMatches(this uint? value, uint number) => value.GetValueOrDefault() == number;
+
+        public static bool IsValidAndMatches(this uint? value, string number) => value.GetValueOrDefault() == number.MapJsonString<uint>();
+        #endregion
+
+        #region Ulong
+        public static bool IsValidValue(this ulong? value) => value.GetValueOrDefault() != default(ulong);
+
+        public static bool IsValidAndAboveZero(this ulong? value) => value.IsValidAndAbove(default(ulong));
+
+        public static bool IsValidAndBelowZero(this ulong? value) => value.IsValidAndBelow(default(ulong));
+
+        public static bool IsValidAndAbove(this ulong? value, ulong min) => value.GetValueOrDefault() > min;
+
+        public static bool IsValidAndBelow(this ulong? value, ulong max) => value.GetValueOrDefault() < max;
+
+        public static bool IsValidAndMatches(this ulong? value, ulong number) => value.GetValueOrDefault() == number;
+
+        public static bool IsValidAndMatches(this ulong? value, string number) => value.GetValueOrDefault() == number.MapJsonString<ulong>();
+        #endregion
     }
 }

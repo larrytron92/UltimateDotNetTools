@@ -186,6 +186,34 @@ namespace UltimateDotNetTools
                     {
                         retVal = Guid.Parse(json);
                     }
+                    else if (genericType == typeof(sbyte) || genericType == typeof(sbyte?))
+                    {
+                        retVal = sbyte.Parse(json);
+                    }
+                    else if (genericType == typeof(byte) || genericType == typeof(byte?))
+                    {
+                        retVal = byte.Parse(json);
+                    }
+                    else if (genericType == typeof(short) || genericType == typeof(short?))
+                    {
+                        retVal = short.Parse(json);
+                    }
+                    else if (genericType == typeof(ushort) || genericType == typeof(ushort?))
+                    {
+                        retVal = ushort.Parse(json);
+                    }
+                    else if (genericType == typeof(uint) || genericType == typeof(uint?))
+                    {
+                        retVal = uint.Parse(json);
+                    }
+                    else if (genericType == typeof(ulong) || genericType == typeof(ulong?))
+                    {
+                        retVal = ulong.Parse(json);
+                    }
+                    else if (genericType == typeof(char) || genericType == typeof(char?))
+                    {
+                        retVal = char.Parse(json);
+                    }
                     else
                     {
                         throw new Exception($"{genericType.Name} is not supported");
@@ -303,7 +331,7 @@ namespace UltimateDotNetTools
                 {
                     for (var i = 0; i < args.Count; i++)
                     {
-                        var valueAsString = ((string)Convert.ChangeType(args[i], genericType)).SafeTrim();
+                        var valueAsString = ((T)Convert.ChangeType(args[i], genericType)).ToString().SafeTrim();
                         retVal.Append($"{argumentName}={valueAsString.MapJsonString<T>(throwOnError)}&");
                     }
                 }
