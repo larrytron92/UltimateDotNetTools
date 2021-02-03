@@ -18,7 +18,7 @@ Any apps that's targeting .NET 5 and beyond should use the newer version of this
 
 C# 8.0
 
-.NET Core 5 Console Application
+.NET 5 Console Application
 
 System.Text.Json
 
@@ -27,6 +27,12 @@ System.Text.Json
 .NET Framework, Core and Xamarin are the most popular technologies used for developing websites and apps. All three major technologies can be programmed in C#, F# and Visual Basic.
 
 .NET Standard is a class library to share common logic among each of the three aforementioned technologies without needing to write the code again. Just create the library, stick the code in, build it as a package, publish the package and then download it into your app and...voilà!
+
+C# is a strongly typed high level programming language by Microsoft released in 2000 that is based on the C family along with influences from Java and Visual Basic. You can build just about anything from website, desktop apps, video games, embedded system, etc with the language and it's very accessible for beginners; and will help you understand C, C++, Objective-C better because the syntax style is exactly the same.
+
+.NET Console Application is just a command console application where you can test code and debug wherever you want to see if it actually works. I'd highly recommend that every .NET Standard, Class Library or big project includes one in lieu of unit testing so you can simulate the actual scenario without needing to deploy.
+
+System.Text.Json is a NuGet package that allows the user to quickly convert a json string into a POCO with options to customise how the json is mapped. Json is the de facto standard for sending data from client-to-server and server-to-server, which makes the toolset a must have in your .NET project where you need to do things such as: jQuery Ajax postbacks or consume to Web APIs.
 
 # The purpose of this project
 
