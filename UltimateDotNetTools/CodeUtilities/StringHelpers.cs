@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
@@ -383,7 +384,7 @@ namespace UltimateDotNetTools
             {
                 if (throwOnError)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("Please specifiy a character greater than zero!");
                 }
 
                 return string.Empty;
@@ -395,6 +396,180 @@ namespace UltimateDotNetTools
             }
             
             return value.Remove(value.Length - endCharactersToRemove);
+        }
+
+        public static List<string> GetTextBetweenTwoCharacters(string value, char characterBeginning, char characterEnd, bool throwOnError = false)
+        {
+            var retVal = new List<string>();
+
+            if (value.IsNullOrWhiteSpace() 
+                || characterBeginning == default(char) || characterBeginning == ' '
+                || characterEnd == default(char) || characterEnd == ' ')
+            {
+                if (throwOnError)
+                {
+                    throw new ArgumentNullException("All three slots must be filled in!");
+                }
+
+                return retVal;
+            }
+            
+            if (value.Contains(characterBeginning))
+            {
+                var leftSplit = value.Split(characterBeginning).ToList();
+
+                if (leftSplit.IsNotNullOrEmpty())
+                {
+                    foreach (var firstSplit in leftSplit.Where(x => x.IsNotNullOrWhiteSpace()))
+                    {
+                        if (firstSplit.Contains(characterEnd))
+                        {
+                            var rightSplit = firstSplit.SafeTrim().Split(characterEnd).ToList();
+
+                            if (rightSplit.IsNotNullOrEmpty())
+                            {
+                                retVal.AddRange(rightSplit.Where(x => x.IsNotNullOrWhiteSpace()).Select(x => x.SafeTrim()));
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (throwOnError)
+                    {
+                        throw new ArgumentOutOfRangeException("There are no text after the first character");
+                    }
+                }
+            }
+            else
+            {
+                if (throwOnError)
+                {
+                    throw new ArgumentOutOfRangeException("Could not locate the beginning character!");
+                }
+            }
+            
+            return retVal;
+        }
+
+        public static bool ContainsSQLInjection(this string value)
+        {
+            if (value.IsNotNullOrWhiteSpace())
+            {
+                var invalidSqlCode = new List<string>
+                { 
+                    "--",
+                    ";--",
+                    ";",
+                    "/*",
+                    "*/",
+                    "@@",
+                    "@",
+                    "%%",
+                    "%",
+                    "char",
+                    "nchar",
+                    "varchar",
+                    "nvarchar",
+                    "alter",
+                    "begin",
+                    "cast",
+                    "create",
+                    "cursor",
+                    "declare",
+                    "delete",
+                    "drop",
+                    "end",
+                    "exec",
+                    "execute",
+                    "fetch",
+                    "insert",
+                    "kill",
+                    "select",
+                    "sys",
+                    "sysobjects",
+                    "syscolumns",
+                    "table",
+                    "update",
+                    "like"
+                };
+
+                string CheckString = value.Replace("'", "''").SafeTrim();
+
+                foreach (var code in invalidSqlCode)
+                {
+                    if ((CheckString.IndexOf(code, StringComparison.OrdinalIgnoreCase) >= 0))
+                    {   
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public static bool ContainsSQLInjection(this IEnumerable<string> collection) => collection.IsNotNullAndAny(x => x.ContainsSQLInjection());
+
+        public static IEnumerable<int> GetCollectionIndexContainingSQLInjection(this IList<string> collection)
+        {
+            var retVal = new List<int>();
+
+            if (collection.IsNotNullOrEmpty())
+            {
+                for (var i = 0; i < collection.Count; i++)
+                {
+                    if (collection[i].ContainsSQLInjection())
+                    {
+                        retVal.Add(i);
+                    }
+                }
+            }
+            
+            return retVal;
+        }
+
+        public static Dictionary<int, bool> GetDictionaryInformationOfSqlInjection(this IList<string> collection)
+        {
+            var retVal = new Dictionary<int, bool>();
+
+            if (collection.IsNotNullOrEmpty())
+            {
+                for (var i = 0; i < collection.Count; i++)
+                {
+                    retVal.Add(i, collection[i].ContainsSQLInjection());
+                }
+            }
+            
+            return retVal;
+        }
+
+        public static bool AllCharactersIsUpper(this string value, bool throwOnError = false)
+        {
+            if (value.IsNullOrWhiteSpace())
+            {
+                if (throwOnError)
+                {
+                    throw new ArgumentNullException("String cannot be empty or full of whitespaces");
+                }
+
+                return true;
+            }
+
+            return value.ToCharArray().Where(x => char.IsLetter(x)).All(x => char.IsUpper(x));
+        }
+        public static bool AllCharactersIsLower(this string value, bool throwOnError = false)
+        {
+            if (value.IsNullOrWhiteSpace())
+            {
+                if (throwOnError)
+                {
+                    throw new ArgumentNullException("String cannot be empty or full of whitespaces");
+                }
+
+                return true;
+            }
+            
+            return value.ToCharArray().Where(x => char.IsLetter(x)).All(x => char.IsLower(x));
         }
     }
 }
